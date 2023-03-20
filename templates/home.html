@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome to my first Site</title>
+    <title>Welcome to {{person_name}} Site</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <style>
-      h1 {
-        color: rgb(50, 50, 50);
-        font-family: "Roboto";
-        font-size: 50px;
-        text-align: center;
-        background-color: #ffffff;
-        padding: 20px;
-        font-weight: normal;
-      }
       #banner {
         width: 100%;
-        height: 360px;
+        height: 300px;
         object-fit: cover;
-      }
-      h2 {
-        font-family: "Roboto";
-        font-size: 35px;
-        color: rgb(100, 100, 100);
-        text-align: center;
-      }
-      .bodytext {
-        font-family: "Roboto";
-        color: rgb(80, 80, 80);
-      }
-
-      #container {
-        max-width: 720px;
-        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <div id="container">
-      <h1>Karim's Portfolio</h1>
-      <img id="banner" src="http://192.168.1.41:5000/static/tech.jpg" />
-      <h2>About Karim</h2>
-      <p class="bodytext">
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">{{person_name}} Portfolio</h1>
+      <img
+        class="img-fluid"
+        id="banner"
+        src="http://192.168.1.41:5000/static/tech.jpg"
+      />
+      <h2 class="text-center mt-2 mb-4">About Karim</h2>
+      <p class="lead">
         "Welcome to my personal website! I'm a recent graduate with a B.S in IT
         and a passion for technology. My experience includes working with Java,
         Python, and data analysis. I'm always eager to learn new skills and
@@ -49,8 +37,8 @@
         hobbies and interests. Thanks for stopping by and feel free to connect
         with me!"
       </p>
-      <h2>Education & Projects</h2>
-      <p class="bodytext">
+      <h2 class="text-center mt-2 mb-4">Education and Projects</h2>
+      <p>
         "I graduated from the University of Texas at Dallas with a B.S in
         Information Technology. I have experience working with Java, Python, and
         data analysis. I'm always eager to learn new skills and technologies to
@@ -59,8 +47,9 @@
         working on projects, I love to explore new hobbies and interests. Thanks
         for stopping by and feel free to connect with me!"
       </p>
-      <h2>Work Experience</h2>
-      <p class="bodytext">
+      <h2 class="text-center mt-2 mb-4">Work Experience</h2>
+      <div>{%for job in jobs%} {% include 'jobitem.html' %} {%endfor%}</div>
+      <p>
         "I graduated from the University of Texas at Dallas with a B.S in
         Information Technology. I have experience working with Java, Python, and
         data analysis. I'm always eager to learn new skills and technologies to
@@ -69,9 +58,9 @@
         working on projects, I love to explore new hobbies and interests. Thanks
         for stopping by and feel free to connect with me!"
       </p>
-      <div style="text-align: center">
-        <button>Contact Me</button>
-        <p>Copyright 2023 Karim</p>
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg">Contact Me</button>
+        <p class="mt-4">Copyright 2023 Karim</p>
       </div>
     </div>
   </body>
